@@ -1,167 +1,172 @@
+[1 前言](#user-content-1-前言)
 
-# JavaScript编码规范
+[2 代码风格](#user-content-2-代码风格)
 
+　　[2.1 文件](#user-content-21-文件)
 
+　　[2.2 结构](#user-content-22-结构)
 
+　　　　[2.2.1 缩进](#user-content-221-缩进)
 
-[1 前言](#1-%E5%89%8D%E8%A8%80)
+　　　　[2.2.2 空格](#user-content-222-空格)
 
-[2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
+　　　　[2.2.3 换行](#user-content-223-换行)
 
-　　[2.1 文件](#21-%E6%96%87%E4%BB%B6)
+　　　　[2.2.4 语句](#user-content-224-语句)
 
-　　[2.2 结构](#22-%E7%BB%93%E6%9E%84)
+　　[2.3 命名](#user-content-23-命名)
 
-　　　　[2.2.1 缩进](#221-%E7%BC%A9%E8%BF%9B)
+　　[2.4 注释](#user-content-24-注释)
 
-　　　　[2.2.2 空格](#222-%E7%A9%BA%E6%A0%BC)
+　　　　[2.4.1 单行注释](#user-content-241-单行注释)
 
-　　　　[2.2.3 换行](#223-%E6%8D%A2%E8%A1%8C)
+　　　　[2.4.2 多行注释](#user-content-242-多行注释)
 
-　　　　[2.2.4 语句](#224-%E8%AF%AD%E5%8F%A5)
+　　　　[2.4.3 文档化注释](#user-content-243-文档化注释)
 
-　　[2.3 命名](#23-%E5%91%BD%E5%90%8D)
+　　　　[2.4.4 类型定义](#user-content-244-类型定义)
 
-　　[2.4 注释](#24-%E6%B3%A8%E9%87%8A)
+　　　　[2.4.5 文件注释](#user-content-245-文件注释)
 
-　　　　[2.4.1 单行注释](#241-%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A)
+　　　　[2.4.6 命名空间注释](#user-content-246-命名空间注释)
 
-　　　　[2.4.2 多行注释](#242-%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A)
+　　　　[2.4.7 类注释](#user-content-247-类注释)
 
-　　　　[2.4.3 文档化注释](#243-%E6%96%87%E6%A1%A3%E5%8C%96%E6%B3%A8%E9%87%8A)
+　　　　[2.4.8 函数/方法注释](#user-content-248-函数/方法注释)
 
-　　　　[2.4.4 类型定义](#244-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89)
+　　　　[2.4.9 事件注释](#user-content-249-事件注释)
 
-　　　　[2.4.5 文件注释](#245-%E6%96%87%E4%BB%B6%E6%B3%A8%E9%87%8A)
+　　　　[2.4.10 常量注释](#user-content-2410-常量注释)
 
-　　　　[2.4.6 命名空间注释](#246-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%B3%A8%E9%87%8A)
+　　　　[2.4.11 复杂类型注释](#user-content-2411-复杂类型注释)
 
-　　　　[2.4.7 类注释](#247-%E7%B1%BB%E6%B3%A8%E9%87%8A)
+　　　　[2.4.12 AMD 模块注释](#user-content-2412-amd-模块注释)
 
-　　　　[2.4.8 函数/方法注释](#248-%E5%87%BD%E6%95%B0/%E6%96%B9%E6%B3%95%E6%B3%A8%E9%87%8A)
+　　　　[2.4.13 细节注释](#user-content-2413-细节注释)
 
-　　　　[2.4.9 事件注释](#249-%E4%BA%8B%E4%BB%B6%E6%B3%A8%E9%87%8A)
+[3 语言特性](#user-content-3-语言特性)
 
-　　　　[2.4.10 常量注释](#2410-%E5%B8%B8%E9%87%8F%E6%B3%A8%E9%87%8A)
+　　[3.1 变量](#user-content-31-变量)
 
-　　　　[2.4.11 复杂类型注释](#2411-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B%E6%B3%A8%E9%87%8A)
+　　[3.2 条件](#user-content-32-条件)
 
-　　　　[2.4.12 AMD 模块注释](#2412-amd-%E6%A8%A1%E5%9D%97%E6%B3%A8%E9%87%8A)
+　　[3.3 循环](#user-content-33-循环)
 
-　　　　[2.4.13 细节注释](#2413-%E7%BB%86%E8%8A%82%E6%B3%A8%E9%87%8A)
+　　[3.4 类型](#user-content-34-类型)
 
-[3 语言特性](#3-%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7)
+　　　　[3.4.1 类型检测](#user-content-341-类型检测)
 
-　　[3.1 变量](#31-%E5%8F%98%E9%87%8F)
+　　　　[3.4.2 类型转换](#user-content-342-类型转换)
 
-　　[3.2 条件](#32-%E6%9D%A1%E4%BB%B6)
+　　[3.5 字符串](#user-content-35-字符串)
 
-　　[3.3 循环](#33-%E5%BE%AA%E7%8E%AF)
+　　[3.6 对象](#user-content-36-对象)
 
-　　[3.4 类型](#34-%E7%B1%BB%E5%9E%8B)
+　　[3.7 数组](#user-content-37-数组)
 
-　　　　[3.4.1 类型检测](#341-%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%B5%8B)
+　　[3.8 函数](#user-content-38-函数)
 
-　　　　[3.4.2 类型转换](#342-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2)
+　　　　[3.8.1 函数声明](#user-content-381-函数声明)
 
-　　[3.5 字符串](#35-%E5%AD%97%E7%AC%A6%E4%B8%B2)
+　　　　[3.8.2 函数长度](#user-content-382-函数长度)
 
-　　[3.6 对象](#36-%E5%AF%B9%E8%B1%A1)
+　　　　[3.8.3 参数设计](#user-content-383-参数设计)
 
-　　[3.7 数组](#37-%E6%95%B0%E7%BB%84)
+　　　　[3.8.4 闭包](#user-content-384-闭包)
 
-　　[3.8 函数](#38-%E5%87%BD%E6%95%B0)
+　　　　[3.8.5 空函数](#user-content-385-空函数)
 
-　　　　[3.8.1 函数长度](#381-%E5%87%BD%E6%95%B0%E9%95%BF%E5%BA%A6)
+　　[3.9 面向对象](#user-content-39-面向对象)
 
-　　　　[3.8.2 参数设计](#382-%E5%8F%82%E6%95%B0%E8%AE%BE%E8%AE%A1)
+　　[3.10 动态特性](#user-content-310-动态特性)
 
-　　　　[3.8.3 闭包](#383-%E9%97%AD%E5%8C%85)
+　　　　[3.10.1 eval](#user-content-3101-eval)
 
-　　　　[3.8.4 空函数](#384-%E7%A9%BA%E5%87%BD%E6%95%B0)
+　　　　[3.10.2 动态执行代码](#user-content-3102-动态执行代码)
 
-　　[3.9 面向对象](#39-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1)
+　　　　[3.10.3 with](#user-content-3103-with)
 
-　　[3.10 动态特性](#310-%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7)
+　　　　[3.10.4 delete](#user-content-3104-delete)
 
-　　　　[3.10.1 eval](#3101-eval)
+　　　　[3.10.5 对象属性](#user-content-3105-对象属性)
 
-　　　　[3.10.2 动态执行代码](#3102-%E5%8A%A8%E6%80%81%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81)
+　　[3.11 异常](#user-content-311-异常)
 
-　　　　[3.10.3 with](#3103-with)
+　　[3.12 函数式](#user-content-312-函数式)
 
-　　　　[3.10.4 delete](#3104-delete)
+[4 浏览器环境](#user-content-4-浏览器环境)
 
-　　　　[3.10.5 对象属性](#3105-%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7)
+　　[4.1 模块化](#user-content-41-模块化)
 
-[4 浏览器环境](#4-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%8E%AF%E5%A2%83)
+　　　　[4.1.1 AMD](#user-content-411-amd)
 
-　　[4.1 模块化](#41-%E6%A8%A1%E5%9D%97%E5%8C%96)
+　　　　[4.1.2 define](#user-content-412-define)
 
-　　　　[4.1.1 AMD](#411-amd)
+　　　　[4.1.3 require](#user-content-413-require)
 
-　　　　[4.1.2 define](#412-define)
+　　[4.2 DOM](#user-content-42-dom)
 
-　　　　[4.1.3 require](#413-require)
+　　　　[4.2.1 元素获取](#user-content-421-元素获取)
 
-　　[4.2 DOM](#42-dom)
+　　　　[4.2.2 样式获取](#user-content-422-样式获取)
 
-　　　　[4.2.1 元素获取](#421-%E5%85%83%E7%B4%A0%E8%8E%B7%E5%8F%96)
+　　　　[4.2.3 样式设置](#user-content-423-样式设置)
 
-　　　　[4.2.2 样式获取](#422-%E6%A0%B7%E5%BC%8F%E8%8E%B7%E5%8F%96)
+　　　　[4.2.4 DOM 操作](#user-content-424-dom-操作)
 
-　　　　[4.2.3 样式设置](#423-%E6%A0%B7%E5%BC%8F%E8%AE%BE%E7%BD%AE)
+　　　　[4.2.5 DOM 事件](#user-content-425-dom-事件)
 
-　　　　[4.2.4 DOM 操作](#424-dom-%E6%93%8D%E4%BD%9C)
+[5 配置文件](#user-content-5-配置文件)
 
-　　　　[4.2.5 DOM 事件](#425-dom-%E4%BA%8B%E4%BB%B6)
+　　[5.1 编辑器格式化代码](#user-content-51-ide)
 
+　　　　[5.1.1 Sublime Text 3](#user-content-511-sublime-text-3)
 
+　　　　　　[5.1.1.1 JavaScript](#user-content-5111-sublime-text-3)
 
+　　　　[5.1.2 WebStorm](#user-content-512-web-strom)
 
+　　[5.2 JSHint](#user-content-52-JSHint)
+
+[6 开发模板](#user-content-6-开发模板)
 
 ## 1 前言
 
+本文档的目标是使JavaScript代码风格保持一致，容易被理解和被维护。
 
-JavaScript在百度一直有着广泛的应用，特别是在浏览器端的行为管理。本文档的目标是使JavaScript代码风格保持一致，容易被理解和被维护。
+虽然本文档是针对JavaScript设计的，但是在使用各种JavaScript的预编译语言时(如TypeScript，Babel等)时，适用的部分也应尽量遵循本文档的约定。
 
-虽然本文档是针对JavaScript设计的，但是在使用各种JavaScript的预编译语言时(如TypeScript等)时，适用的部分也应尽量遵循本文档的约定。
+虽然现在开发大多使用jQuery、Zepto，但是仍需要对原生JavaScript足够熟悉，逐步替换jQuery、Zepto在项目中所占的比例，或者打造出适合自己的库。
 
+支持浏览器版本：IE9+等现代浏览器。
 
+在保证浏览器兼容性的前提下，优先使用EcmaScript5、6规定的标准特性。通过下面两个连接来查询兼容性：
+- http://kangax.github.io/compat-table/es5/
+- http://caniuse.com/
 
 ## 2 代码风格
 
-
-
-
-
-
 ### 2.1 文件
 
-
 ##### [建议] `JavaScript` 文件使用无 `BOM` 的 `UTF-8` 编码。
+
 
 解释：
 
 UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文件时可能造成不必要的干扰。
 
+http://www.zhihu.com/question/20167122
+
+
 ##### [建议] 在文件结尾处，保留一个空行。
-
-
-
 
 ### 2.2 结构
 
-
-
 #### 2.2.1 缩进
 
+##### [强制|工具] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
 
-##### [强制] 使用 `4` 个空格做为一个缩进层级，不允许使用 `2` 个空格 或 `tab` 字符。
-
-
-
-##### [强制] `switch` 下的 `case` 和 `default` 必须增加一个缩进层级。
+##### [强制|工具] `switch` 下的 `case` 和 `default` 必须增加一个缩进层级。
 
 示例：
 
@@ -201,9 +206,7 @@ default:
 
 #### 2.2.2 空格
 
-
-
-##### [强制] 二元运算符两侧必须有一个空格，一元运算符与操作对象之间不允许有空格。
+##### [强制|工具] 二元运算符两侧必须有一个空格，一元运算符与操作对象之间不允许有空格。
 
 示例：
 
@@ -213,7 +216,7 @@ a++;
 a = b + c;
 ```
 
-##### [强制] 用作代码块起始的左花括号 `{` 前必须有一个空格。
+##### [强制|工具] 用作代码块起始的左花括号 `{` 前必须有一个空格。
 
 示例：
 
@@ -239,7 +242,7 @@ function funcName(){
 }
 ```
 
-##### [强制] `if / else / for / while / function / switch / do / try / catch / finally` 关键字后，必须有一个空格。
+##### [强制|工具] `if / else / for / while / function / switch / do / try / catch / finally` 关键字后，必须有一个空格。
 
 示例：
 
@@ -265,7 +268,7 @@ while(condition) {
 })();
 ```
 
-##### [强制] 在对象创建时，属性中的 `:` 之后必须有空格，`:` 之前不允许有空格。
+##### [强制|工具] 在对象创建时，属性中的 `:` 之后必须有空格，`:` 之前不允许有空格。
 
 示例：
 
@@ -285,7 +288,7 @@ var obj = {
 };
 ```
 
-##### [强制] 函数声明、具名函数表达式、函数调用中，函数名和 `(` 之间不允许有空格。
+##### [强制|工具] 函数声明、具名函数表达式、函数调用中，函数名和 `(` 之间不允许有空格。
 
 示例：
 
@@ -294,7 +297,7 @@ var obj = {
 function funcName() {
 }
 
-var funcName = function funcName() {
+var funcName = function() {
 };
 
 funcName();
@@ -303,13 +306,13 @@ funcName();
 function funcName () {
 }
 
-var funcName = function funcName () {
+var funcName = function () {
 };
 
 funcName ();
 ```
 
-##### [强制] `,` 和 `;` 前不允许有空格。
+##### [强制|工具] `,` 和 `;` 前不允许有空格。
 
 示例：
 
@@ -321,7 +324,7 @@ callFunc(a, b);
 callFunc(a , b) ;
 ```
 
-##### [强制] 在函数调用、函数声明、括号表达式、属性访问、`if / for / while / switch / catch` 等语句中，`()` 和 `[]` 内紧贴括号部分不允许有空格。
+##### [强制|工具] 在函数调用、函数声明、括号表达式、属性访问、`if / for / while / switch / catch` 等语句中，`()` 和 `[]` 内紧贴括号部分不允许有空格。
 
 示例：
 
@@ -356,7 +359,7 @@ while ( len-- ) {
 }
 ```
 
-##### [强制] 单行声明的数组与对象，如果包含元素，`{}` 和 `[]` 内紧贴括号部分不允许包含空格。
+##### [强制|工具] 单行声明的数组与对象，如果包含元素，`{}` 和 `[]` 内紧贴括号部分不允许包含空格。
 
 解释：
 
@@ -385,7 +388,7 @@ var obj2 = { name: 'obj' };
 var obj3 = {name: 'obj', age: 20, sex: 1};
 ```
 
-##### [强制] 行尾不得有多余的空格。
+##### [强制|工具] 行尾不得有多余的空格。
 
 
 #### 2.2.3 换行
@@ -398,85 +401,6 @@ var obj3 = {name: 'obj', age: 20, sex: 1};
 解释：
 
 超长的不可分割的代码允许例外，比如复杂的正则表达式。长字符串不在例外之列。
-
-
-##### [强制] 运算符处换行时，运算符必须在新行的行首。
-
-示例：
-
-```javascript
-// good
-if (user.isAuthenticated()
-    && user.isInRole('admin')
-    && user.hasAuthority('add-admin')
-    || user.hasAuthority('delete-admin')
-) {
-    // Code
-}
-
-var result = number1 + number2 + number3
-    + number4 + number5;
-
-
-// bad
-if (user.isAuthenticated() &&
-    user.isInRole('admin') &&
-    user.hasAuthority('add-admin') ||
-    user.hasAuthority('delete-admin')) {
-    // Code
-}
-
-var result = number1 + number2 + number3 +
-    number4 + number5;
-```
-
-##### [强制] 在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在 `,` 或 `;` 前换行。
-
-示例：
-
-```javascript
-// good
-var obj = {
-    a: 1,
-    b: 2,
-    c: 3
-};
-
-foo(
-    aVeryVeryLongArgument,
-    anotherVeryLongArgument,
-    callback
-);
-
-
-// bad
-var obj = {
-    a: 1
-    , b: 2
-    , c: 3
-};
-
-foo(
-    aVeryVeryLongArgument
-    , anotherVeryLongArgument
-    , callback
-);
-```
-
-##### [建议] 不同行为或逻辑的语句集，使用空行隔开，更易阅读。
-
-示例：
-
-```javascript
-// 仅为按逻辑换行的示例，不代表setStyle的最优实现
-function setStyle(element, property, value) {
-    if (element == null) {
-        return;
-    }
-
-    element.style[property] = value;
-}
-```
 
 ##### [建议] 在语句的行长度超过 `120` 时，根据逻辑条件合理缩进。
 
@@ -571,6 +495,86 @@ var array = [
 ];
 ```
 
+##### [强制] 运算符处换行时，运算符必须在新行的行首。
+
+示例：
+
+```javascript
+// good
+if (user.isAuthenticated()
+    && user.isInRole('admin')
+    && user.hasAuthority('add-admin')
+    || user.hasAuthority('delete-admin')
+) {
+    // Code
+}
+
+var result = number1 + number2 + number3
+    + number4 + number5;
+
+
+// bad
+if (user.isAuthenticated() &&
+    user.isInRole('admin') &&
+    user.hasAuthority('add-admin') ||
+    user.hasAuthority('delete-admin')) {
+    // Code
+}
+
+var result = number1 + number2 + number3 +
+    number4 + number5;
+```
+
+##### [强制|工具] 在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在 `,` 或 `;` 前换行。
+
+示例：
+
+```javascript
+// good
+var obj = {
+    a: 1,
+    b: 2,
+    c: 3
+};
+
+foo(
+    aVeryVeryLongArgument,
+    anotherVeryLongArgument,
+    callback
+);
+
+
+// bad
+var obj = {
+    a: 1
+    , b: 2
+    , c: 3
+};
+
+foo(
+    aVeryVeryLongArgument
+    , anotherVeryLongArgument
+    , callback
+);
+```
+
+##### [建议] 不同行为或逻辑的语句集，使用空行隔开，更易阅读。
+
+示例：
+
+```javascript
+// 仅为按逻辑换行的示例，不代表setStyle的最优实现
+function setStyle(element, property, value) {
+    if (element == null) {
+        return;
+    }
+
+    element.style[property] = value;
+}
+```
+
+
+
 ##### [建议] 对于 `if...else...`、`try...catch...finally` 等语句，推荐使用在 `}` 号后添加一个换行 的风格，使代码层次结构更清晰，阅读性更好。
 
 示例：
@@ -598,23 +602,11 @@ catch (ex) {
 
 ##### [强制] 不得省略语句结束的分号。
 
-##### [强制] 在 `if / else / for / do / while` 语句中，即使只有一行，也不得省略块 `{...}`。
+##### [强制] 函数定义结束不允许添加分号。如果是函数表达式，分号是不允许省略的。
 
-示例：
+解释：
 
-```javascript
-// good
-if (condition) {
-    callFunc();
-}
-
-// bad
-if (condition) callFunc();
-if (condition)
-    callFunc();
-```
-
-##### [强制] 函数定义结束不允许添加分号。
+http://www.zhihu.com/question/20298345
 
 示例：
 
@@ -631,6 +623,25 @@ function funcName() {
 var funcName = function () {
 };
 ```
+
+
+##### [强制] 在 `if / else / for / do / while` 语句中，即使只有一行，也不得省略块 `{...}`。
+
+示例：
+
+```javascript
+// good
+if (condition) {
+    callFunc();
+}
+
+// bad
+if (condition) callFunc();
+if (condition)
+    callFunc();
+```
+
+
 
 ##### [强制] `IIFE` 必须在函数表达式外添加 `(`，非 `IIFE` 不得在函数表达式外添加 `(`。
 
@@ -664,10 +675,6 @@ var func = (function () {
 });
 ```
 
-
-
-
-
 ### 2.3 命名
 
 
@@ -678,6 +685,7 @@ var func = (function () {
 ```javascript
 var loadingModules = {};
 ```
+
 
 ##### [强制] `常量` 使用 `全部字母大写，单词间下划线分隔` 的命名方式。
 
@@ -704,6 +712,7 @@ function stringFormat(source) {
 function hear(theBells) {
 }
 ```
+
 
 
 ##### [强制] `类` 使用 `Pascal命名法`。
@@ -1485,6 +1494,9 @@ name = 'MyName';
 
 一个 var 声明多个变量，容易导致较长的行长度，并且在修改时容易造成逗号和分号的混淆。
 
+http://stackoverflow.com/questions/694102/declaring-multiple-variables-in-javascript
+
+http://jsperf.com/var-declaractions-single-or-multiple
 
 示例：
 
@@ -1560,7 +1572,11 @@ function kv2List(source) {
 
 解释：
 
-使用 === 可以避免等于判断中隐式的类型转换。
+使用`===`可以避免`==`隐式的类型转换。
+
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+http://www.adequatelygood.com/Object-to-Primitive-Conversions-in-JavaScript.html
 
 
 示例：
@@ -1662,8 +1678,14 @@ if (noValue === null || typeof noValue === 'undefined') {
 1. 阅读的人容易找到最常见的情况，增加可读性。
 2. 提高执行效率。
 
-
 ##### [建议] 对于相同变量或表达式的多值条件，用 `switch` 代替 `if`。
+
+
+解释：
+
+http://stackoverflow.com/questions/2922948/javascript-switch-vs-if-else-if-else
+
+http://archive.oreilly.com/pub/a/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html
 
 示例：
 
@@ -1689,6 +1711,9 @@ else if (type === 'number' || type === 'boolean' || type === 'string') {
     // ......
 }
 ```
+
+
+
 
 ##### [建议] 如果函数或全局中的 `else` 块后没有任何语句，可以删除 `else`。
 
@@ -1789,48 +1814,27 @@ for (var i = 0, len = elements.length; i < len; i++) {
 }
 ```
 
-##### [建议] 对有序集合进行顺序无关的遍历时，使用逆序遍历。
-
-解释：
-
-逆序遍历可以节省变量，代码比较优化。
-
-示例：
-
-```javascript
-var len = elements.length;
-while (len--) {
-    var element = elements[len];
-    // ......
-}
-```
-
-
-
-
-
 ### 3.4 类型
-
 
 #### 3.4.1 类型检测
 
-
-##### [建议] 类型检测优先使用 `typeof`。对象类型检测使用 `instanceof`。`null` 或 `undefined` 的检测使用 `== null`。
-
+##### [建议] 类型检测优先使用原生的判定方法，然后再考虑一些hack的方法。
 示例：
 
 ```javascript
 // string
-typeof variable === 'string'
+Object.prototype.toString.call(variable) === '[object String]'
 
 // number
-typeof variable === 'number'
+Object.prototype.toString.call(variable) === '[object Number]'
 
 // boolean
-typeof variable === 'boolean'
+Object.prototype.toString.call(variable) === '[object Boolean]'
 
 // Function
 typeof variable === 'function'
+
+Object.prototype.toString.call(functionName) === '[object Function]'
 
 // Object
 typeof variable === 'object'
@@ -1839,6 +1843,8 @@ typeof variable === 'object'
 variable instanceof RegExp
 
 // Array
+Array.isArray()
+
 variable instanceof Array
 
 // null
@@ -1848,14 +1854,67 @@ variable === null
 variable == null
 
 // undefined
-typeof variable === 'undefined'
+void(0) === variable
+
+Object.prototype.toString.call(variable) === '[object Undefined]'
+
+// NaN 
+variable !== variable
+
+// ES6 
+Number.isNaN()
+
+
+
+
 ```
 
+解释：
+
+```javascript
+typeof new Boolean(false) //'object'
+
+typeof new Number(123) // 'object'
+
+typeof new String('haha') // 'object'
+
+// Array
+// 《JavaScript框架设计》- 司徒正美
+var iframe = document.createElement('iframe');
+document.body.appendChild(iframe);
+xArray = window.frames[window.frames.length - 1].Array; 
+var arr = new xArray(1, 2, 3); // [1,2,3]
+arr instanceof Array; // false
+arr.constructor === Array; //false
+
+// NaN
+// NaN是JavaScript中唯一不等于其自身的函数
+
+// 注意Number.isNaN()与isNaN()的区别
+Number.isNaN('asd'); // false
+Number.isNaN(NaN); // true
+
+// isNaN() 会将参数进行类型转换 arguments => number => 判断
+isNaN('asd'); // true
+isNaN(NaN); // true
+
+```
+
+
+[Object.prototype.toString()-MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
+
+[void 运算符-MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/void)
+
+[Number.isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
 
 #### 3.4.2 类型转换
 
 
 ##### [建议] 转换成 `string` 时，使用 `+ ''`。
+
+解释：
+
+http://stackoverflow.com/questions/5765398/whats-the-best-way-to-convert-a-number-to-a-string-in-javascript
 
 示例：
 
@@ -1869,7 +1928,14 @@ num.toString();
 String(num);
 ```
 
+
 ##### [建议] 转换成 `number` 时，通常使用 `+`。
+
+解释：
+
+http://stackoverflow.com/questions/12862624/whats-the-fastest-way-to-convert-string-to-number-in-javascript
+
+http://jsperf.com/converting-string-to-int/3
 
 示例：
 
@@ -1924,8 +1990,6 @@ Math.ceil(num);
 var num = 3.14;
 parseInt(num, 10);
 ```
-
-
 
 
 ### 3.5 字符串
@@ -2134,15 +2198,55 @@ for (i in arr) {
 
 ##### [建议] 清空数组使用 `.length = 0`。
 
+解释：
 
+```javascript
+var arr1 = ['a','b','c','d','e','f'];
+var arr2 = arr1;  // Reference arr1 by another variable 
+arr1 = [];
+console.log(arr2); // Output ['a','b','c','d','e','f']
+
+var arr1 = ['a','b','c','d','e','f'];
+var arr2 = arr1;  // Reference arr1 by another variable 
+arr1.length = 0;
+console.log(arr2); // Output []
+```
+
+http://stackoverflow.com/questions/1232040/how-to-empty-an-array-in-javascript
 
 
 ### 3.8 函数
 
+#### 3.8.1 函数声明
 
+##### [强制] 不在语句块内声明函数，函数声明应该在定义域的顶层。语句块内可将函数申明转化为函数表达式赋值给变量。
 
-#### 3.8.1 函数长度
+解释：在 ECMAScript 5 的严格模式下，这是不合法的。未来版本的ECMAScript很有可能会引入新语法，ECMAScript5中的严格模式就提早设置了一些限制来减轻之后版本改变产生的影响。如果提早使用了严格模式中的保护机制，那么做出改变就会变得更容易。
 
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode#为未来的ECMAScript版本铺平道路
+
+示例：
+
+```javascript
+// good
+function foo() {}
+if (x) {
+    foo();
+}
+
+// bad
+if (x) {
+    function foo() {}
+    foo();
+}
+
+// 语句块内可将函数申明转化为函数表达式赋值给变量
+if (x) {
+    var foo = function() {};
+}
+```
+
+#### 3.8.2 函数长度
 
 ##### [建议] 一个函数的长度控制在 `50` 行以内。
 
@@ -2156,24 +2260,7 @@ for (i in arr) {
 示例：
 
 ```javascript
-function syncViewStateOnUserAction() {
-    if (x.checked) {
-        y.checked = true;
-        z.value = '';
-    }
-    else {
-        y.checked = false;
-    }
 
-    if (!a.value) {
-        warning.innerText = 'Please enter it';
-        submitButton.disabled = true;
-    }
-    else {
-        warning.innerText = '';
-        submitButton.disabled = false;
-    }
-}
 
 // 直接阅读该函数会难以明确其主线逻辑，因此下方是一种更合理的表达方式：
 
@@ -2203,7 +2290,7 @@ function checkAAvailability() {
 ```
 
 
-#### 3.8.2 参数设计
+#### 3.8.3 参数设计
 
 
 ##### [建议] 一个函数的参数控制在 `6` 个以内。
@@ -2264,7 +2351,7 @@ function removeElement(element, options) {
 
 
 
-#### 3.8.3 闭包
+#### 3.8.4 闭包
 
 
 ##### [建议] 在适当的时候将闭包内大对象置为 `null`。
@@ -2329,9 +2416,9 @@ while (len--) {
 var tasks = [];
 for (var i = 0; i < 5; i++) {
     // 注意有一层额外的闭包
-    tasks[tasks.length] = (function (i) {
+    tasks[tasks.length] = (function (m) {
         return function () {
-            console.log('Current cursor is at ' + i);
+            console.log('Current cursor is at ' + m);
         };
     })(i);
 }
@@ -2342,10 +2429,14 @@ while (len--) {
 }
 ```
 
-#### 3.8.4 空函数
+#### 3.8.5 空函数
 
 
 ##### [建议] 空函数不使用 `new Function()` 的形式。
+
+解释：
+
+http://jsperf.com/create-void-empty-function
 
 示例：
 
@@ -2609,16 +2700,46 @@ Tree.prototype.selectNode = function (id) {
 - 从 DOM 中取出的值通常为 string 类型，如果有对象或函数的接收类型为 number 类型，提前作好转换，而不是期望对象、函数可以处理多类型的值。
 
 
+### 3.11 异常
 
 
+##### [建议] 尽量在可能但不确定出现异常的地方（大量运算，AJAX请求，数组操作或DOM操作等）用try-catch(e)来抛出异常。
 
+解释：因为无法完美控制不出现异常，抛出异常有利于规模较大的项目中排查错误，
 
+### 3.12 函数式
 
+##### [建议] 首选函数式编程风格
 
+示例：
+
+```javascript
+// 数组求和
+// 推荐风格
+var arr = [10, 3, 7, 9, 100, 20];
+
+var sum = arr.reduce(
+    function(prevValue, currentValue) {
+        return prevValue + currentValue;
+    }, 
+    0
+);
+
+log('The sum of array ' + arr + ' is: ' + sum);
+
+// 不推荐
+
+var arr = [10, 3, 7, 9, 100, 20];
+var sum = 0;
+
+for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+}
+
+log('The sum of array ' + arr + ' is: ' + sum);
+```
 
 ## 4 浏览器环境
-
-
 
 
 ### 4.1 模块化
@@ -2848,6 +2969,7 @@ alert(elements[0].tagName);
 - Resize浏览器窗口、滚动页面。
 - 读取元素的某些属性（offsetLeft、offsetTop、offsetHeight、offsetWidth、scrollTop/Left/Width/Height、clientTop/Left/Width/Height、getComputedStyle()、currentStyle(in IE)) 。
 
+[页面重绘和回流以及优化](http://www.css88.com/archives/4996)
 
 ##### [建议] 尽量减少 `DOM` 操作。
 
@@ -2859,8 +2981,6 @@ DOM 操作也是非常耗时的一种操作，减少 DOM 操作有助于提高�
 2. 在循环体中拼接 HTML 字符串，循环结束后写父元素的 innerHTML。
 
 第一种方法看起来比较标准，但是每次循环都会对 DOM 进行操作，性能极低。在这里推荐使用第二种方法。
-
-
 
 
 #### 4.2.5 DOM 事件
